@@ -1,9 +1,17 @@
-import axios from 'axios'
+import http from './http'
 
-axios.defaults.baseURL = 'http://localhost:3000'
+http.interceptors.response.use((response) => {
+  return response
+}, function (error) {
+  if (error.response.status === 401) {
+    console.log('Unauthorized')
+    localStorage.removeItem('token')
+  }
+  return Promise.reject(error)
+})
 
 export function getProducts () {
-  return axios.get('products', {headers: {'x-access-token': localStorage.getItem('token')}})
+  return http.get('products', {headers: {'x-access-token': localStorage.getItem('token')}})
     .then(response => {
       return response.data
     })

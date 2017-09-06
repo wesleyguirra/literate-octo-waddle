@@ -51,4 +51,19 @@
   a {
     color: #42b983;
   }
+
+  .card {
+    padding: 20px;
+    max-width: 300px;
+    margin: 10px auto;
+    text-align: left;
+    -webkit-box-shadow: 0px 17px 36px -35px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 17px 36px -35px rgba(0,0,0,0.75);
+    box-shadow: 0px 17px 36px -35px rgba(0,0,0,0.75);
+  }
+
+  .product {
+    background: #212121;
+    color: #fff;
+  }
 </style>

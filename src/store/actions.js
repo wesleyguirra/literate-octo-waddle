@@ -1,10 +1,8 @@
-import axios from 'axios'
-
-axios.defaults.baseURL = 'http://localhost:3000'
+import http from '../services/http'
 
 export default {
   login ({commit}, credentials) {
-    return axios.post('auth', {
+    return http.post('auth', {
       username: credentials.username,
       password: credentials.password
     })
@@ -15,6 +13,7 @@ export default {
         return response
       })
   },
+
   logout ({commit}) {
     localStorage.removeItem('token')
     commit('LOGOUT')

@@ -15,21 +15,3 @@ new Vue({
   template: '<App/>',
   components: { App }
 })
-
-router.beforeEach((to, from, next) => {
-  console.log('teste')
-  if (to.matched.some(record => record.meta.requiresAuth)) {
-    if (!localStorage.getItem('token')) {
-      next({
-        path: '/login',
-        query: {
-          redirect: to.fullPath
-        }
-      })
-    } else {
-      next()
-    }
-  } else {
-    next()
-  }
-})
