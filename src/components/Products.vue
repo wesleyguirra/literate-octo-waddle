@@ -2,7 +2,9 @@
   <div class="products">
     <h1>Products</h1>
     <div v-for="product in products" class="card product">
-      <span>{{ product.name }}</span>
+      <h3>{{ product.name }}</h3>
+      <span>{{ product.slug }}</span>
+      <p>{{ product.description }}</p>
     </div>
   </div>
 </template>

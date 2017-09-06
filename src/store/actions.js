@@ -4,7 +4,6 @@ axios.defaults.baseURL = 'http://localhost:3000'
 
 export default {
   login ({commit}, credentials) {
-    console.log(credentials)
     return axios.post('auth', {
       username: credentials.username,
       password: credentials.password
@@ -15,5 +14,9 @@ export default {
         commit('LOGIN_SUCCESS')
         return response
       })
+  },
+  logout ({commit}) {
+    localStorage.removeItem('token')
+    commit('LOGOUT')
   }
 }
